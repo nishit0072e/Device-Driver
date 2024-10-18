@@ -22,10 +22,36 @@ Now download & Install ```VsCode``` and then install the extension pack of ```Re
 multipass exec primary -- sudo ip addr add <desired_ip>/24 dev <interface_name>
 ```
 again run ```multipass list``` to check if wheather ip address is assigned or not. Now open VsCode and click on the remote explorer button to connect virtual machine platform using ssh.
+To do that don't forget to change remote explorer option from " dev container " to " remote(Tunnel/ssh) " and open command prompt and run ```multipass shell ``` to be inside the multipass platform. 
 
-#Linux platform
+Now run ```sudo vi /etc/ssh/sshd_config```, here ssh config file will be modified to setup a ssh connection with the host machine, now config file is open and type ```:set nu``` which will show up the line numbers. 
+Now Search for the line ```KbdinteractiveAuthentication no``` typically in line 62, now press 'i' for entering into interactive mode with vi editor, then change no into yes and press 'esc' on keyboard to exit from the interactive mode and now write ```:wq``` to save and quit from the vi editor.
+Now run ``` sudo systemctl daemon-reload ``` to reload the daemon, then restart the ssh connection by running this command ``` sudo service ssh restart ```.
+
+Bydefault multipass doesn't set a password so we have to set a password, so for this run this command ``` sudo passwd ubuntu ```, here you can save the password. Now copy the ip address by running ``` multipass list ``` in command prompt, head over to VsCode remote explorer button and be sure to change remote explorer option from " dev container " to " remote(Tunnel/ssh) " then click on the new button on the ssh tab and paste the ip address and hit enter and add it to " .ssh/config ". 
+Now connection is established, click on refresh to see appearing the ip address in remote section.
+
+Now click on the arrow for entering into the ip address and then enter the password set, VsCode should be connected to remote server.
+
+Now Windows platform setup is successful.
+# Linux platform
 
 For installing multipass in Linux, head over to it's terminal and run the below command, this should install multipass in system. 
 ```
 sudo snap install multipass
 ```
+next run ```multipass shell```  by default it will take name as "primary", now download and install VsCode in Linux environment and download ```Remote Development``` extension pack.
+
+Now open terminal and run ```sudo vi /etc/ssh/sshd_config```, here ssh config file will be modified to setup a ssh connection with the host machine, now config file is open and type ```:set nu``` which will show up the line numbers. 
+Now Search for the line ```KbdinteractiveAuthentication no``` typically in line 62, now press 'i' for entering into interactive mode with vi editor, then change no into yes and press 'esc' on keyboard to exit from the interactive mode and now write ```:wq``` to save and quit from the vi editor.
+Now run ``` sudo systemctl daemon-reload ``` to reload the daemon, then restart the ssh connection by running this command ``` sudo service ssh restart ```.
+
+Bydefault multipass doesn't set a password so we have to set a password, so for this run this command ``` sudo passwd ubuntu ```, here you can save the password. Now check the ip address assigned to the system by running ```hostname -i``` in terminal, it should reflect the ip address.
+
+Copy the ip address and head over to VsCode and click on the remote explorer button and be sure to change remote explorer option from " dev container " to " remote(Tunnel/ssh) " then click on the new button on the ssh tab and paste the ip address and hit enter and add it to " .ssh/config ". 
+Now connection is established, click on refresh to see appearing the ip address in remote section.
+
+Now click on the arrow for entering into the ip address and then enter the password set, VsCode should be connected to remote server.
+
+Now Linux platform setup is successful.
+
