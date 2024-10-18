@@ -25,4 +25,7 @@ again run ```multipass list``` to check if wheather ip address is assigned or no
 
 #Linux platform
 
-For installing multipass in Linux, head over to it's terminal and run ```sudo snap install multipass```, this should install multipass in system.
+For installing multipass in Linux, head over to it's terminal and run the below command, this should install multipass in system. 
+```
+sudo snap install multipass
+```
