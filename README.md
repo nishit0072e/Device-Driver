@@ -55,3 +55,4 @@ Now click on the arrow for entering into the ip address and then enter the passw
 
 Now Linux platform setup is successful.
 
+Refer this [Video](https://youtu.be/iSiyDHobXHA?si=NSB-1m94N8tYDqWA) by [Piyush](https://www.linkedin.com/in/streetdogg/?originalSubdomain=in) Sir
